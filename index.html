@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Galería</title>
+</head>
+<body>
+<h1>Galería cargada desde fotos.json</h1>
+<div id="galeria"></div>
+<script>
+fetch('fotos.json')
+  .then(r => r.json())
+  .then(lista => {
+      const gal = document.getElementById('galeria');
+      lista.forEach(f => {
+          const img = document.createElement('img');
+          img.src = 'fotos/' + f;
+          img.width = 200;
+          gal.appendChild(img);
+      });
+  });
+</script>
+</body>
+</html>
